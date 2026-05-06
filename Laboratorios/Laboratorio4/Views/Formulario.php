@@ -12,7 +12,7 @@
             <h1>Laboratorio Cookies</h1>
             <p>Ingrese su nombre para guardarlo temporalmente en una cookie.</p>
 
-            <form action="ProcesarNombre.php" method="POST" class="formulario">
+            <form action="../Controlador/ProcesarNombre.php" method="POST" class="formulario">
                 <label for="nombre">Nombre</label>
                 <input
                     type="text"

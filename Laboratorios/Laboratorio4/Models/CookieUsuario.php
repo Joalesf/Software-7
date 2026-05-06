@@ -3,7 +3,7 @@
 class CookieUsuario
 {
     private $nombreCookie = 'nombre_usuario';
-    private $tiempoExpiracion = 300; // 5 minutos
+    private $tiempoExpiracion = 10; // 10 segundos
 
     public function guardarNombre($nombre)
     {

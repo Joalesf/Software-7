@@ -1,5 +1,5 @@
 <?php
-require_once '../Modelo/CookieUsuario.php';
+require_once '../Models/CookieUsuario.php';
 
 class CookieController
 {
@@ -12,7 +12,7 @@ class CookieController
 
     public function mostrarFormulario()
     {
-        require '../Vista/Formulario.php';
+        require '../Views/Formulario.php';
     }
 
     public function guardarNombre()
@@ -35,7 +35,7 @@ class CookieController
     public function mostrarBienvenida()
     {
         $nombre = $this->modelo->obtenerNombre();
-        require '../Vista/Bienvenida.php';
+        require '../Views/Bienvenida.php';
     }
 
     public function salir()
