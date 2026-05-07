@@ -1,3 +1,8 @@
+//Integrantes
+//- José Sánchez
+// Edgar Rosario
+// Richard Rodríguez
+// Grupo 9
 <?php
 require_once 'controllers/LaboratorioControlador.php';
 
