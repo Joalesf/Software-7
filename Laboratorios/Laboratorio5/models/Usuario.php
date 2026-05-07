@@ -1,5 +1,4 @@
 <?php
-// models/Usuario.php - Modelo de usuarios registrados
 
 require_once __DIR__ . '/Conexion.php';
 
@@ -26,7 +25,7 @@ class Usuario
             return $consulta->fetch(PDO::FETCH_ASSOC) !== false;
         } catch (PDOException $e) {
             error_log($e->getMessage());
-            self::$ultimoError = 'No se pudo consultar la base de datos. Importe base_datos_lab7.sql y verifique que MySQL este activo.';
+            self::$ultimoError = 'No se pudo consultar la base de datos.';
             return false;
         }
     }

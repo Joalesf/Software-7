@@ -1,5 +1,4 @@
 <?php
-// models/Conexion.php - Clase de conexion PDO para MySQL de XAMPP
 
 class Conexion
 {

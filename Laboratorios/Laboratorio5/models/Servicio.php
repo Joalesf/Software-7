@@ -1,5 +1,4 @@
 <?php
-// models/Servicio.php - Contiene el catalogo y calculos de servicios
 
 require_once __DIR__ . '/Conexion.php';
 

@@ -1,6 +1,4 @@
 <?php
-// index.php - Punto de entrada y enrutador del laboratorio
-
 require_once __DIR__ . '/controllers/LaboratorioControlador.php';
 
 $controlador = new LaboratorioControlador();

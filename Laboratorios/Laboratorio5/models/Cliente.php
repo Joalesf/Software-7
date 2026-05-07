@@ -1,5 +1,4 @@
 <?php
-// models/Cliente.php - Representa los datos personales del cliente
 
 require_once __DIR__ . '/Conexion.php';
 
