@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/Conexion.php';
+require_once 'config/herramientas.php';
 
 class Cliente
 {
@@ -58,8 +58,7 @@ class Cliente
     public function guardar($serviciosSeleccionados, $total)
     {
         try {
-            $conexion = Conexion::Conectar();
-            $conexion->beginTransaction();
+            $conexion = Herramientas::conectar();
 
             $consultaCliente = $conexion->prepare(
                 'INSERT INTO clientes
@@ -95,14 +94,8 @@ class Cliente
                 $consultaServicio->execute();
             }
 
-            $conexion->commit();
             return true;
         } catch (PDOException $e) {
-            if (isset($conexion) && $conexion->inTransaction()) {
-                $conexion->rollBack();
-            }
-
-            error_log($e->getMessage());
             return false;
         }
     }

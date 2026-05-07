@@ -1,13 +1,13 @@
 <?php
 
-require_once __DIR__ . '/Conexion.php';
+require_once 'config/herramientas.php';
 
 class Servicio
 {
     public static function obtenerTodos()
     {
         try {
-            $conexion = Conexion::Conectar();
+            $conexion = Herramientas::conectar();
             $consulta = $conexion->prepare(
                 'SELECT id_servicio, nombre, precio
                  FROM servicios

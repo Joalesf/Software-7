@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/controllers/LaboratorioControlador.php';
+require_once 'controllers/LaboratorioControlador.php';
 
 $controlador = new LaboratorioControlador();
 $accion = isset($_GET['accion']) ? $_GET['accion'] : 'login';

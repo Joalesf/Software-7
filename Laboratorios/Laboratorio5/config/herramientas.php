@@ -1,8 +1,8 @@
 <?php
 
-class Conexion
+class Herramientas
 {
-    public static function Conectar()
+    public static function conectar()
     {
         $host = 'localhost';
         $puerto = '3306';

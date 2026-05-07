@@ -1,17 +1,13 @@
 <?php
 
-require_once __DIR__ . '/Conexion.php';
+require_once 'config/herramientas.php';
 
 class Usuario
 {
-    private static $ultimoError = '';
-
     public static function validar($usuario, $clave)
     {
-        self::$ultimoError = '';
-
         try {
-            $conexion = Conexion::Conectar();
+            $conexion = Herramientas::conectar();
             $consulta = $conexion->prepare(
                 'SELECT id_usuario FROM usuarios
                  WHERE usuario = :usuario AND contrasena = :contrasena
@@ -24,15 +20,8 @@ class Usuario
 
             return $consulta->fetch(PDO::FETCH_ASSOC) !== false;
         } catch (PDOException $e) {
-            error_log($e->getMessage());
-            self::$ultimoError = 'No se pudo consultar la base de datos.';
             return false;
         }
-    }
-
-    public static function obtenerError()
-    {
-        return self::$ultimoError;
     }
 }
 ?>
