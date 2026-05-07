@@ -11,8 +11,8 @@
         <section class="panel panel-ancho">
             <div class="barra">
                 <div>
-                    <h1>Servicios para clientes</h1>
-                    <p>Seleccione los servicios solicitados y complete los datos del cliente.</p>
+                    <h1>Orden de servicio</h1>
+                    <p>Complete los datos y marque los trabajos solicitados.</p>
                 </div>
                 <a class="enlace-salir" href="index.php?accion=salir">Cerrar sesion</a>
             </div>
@@ -28,39 +28,41 @@
                 </div>
             <?php } ?>
 
-            <form class="formulario grid-formulario" action="index.php?accion=procesar" method="post">
-                <div class="campo">
-                    <label for="nombre">Nombre del cliente</label>
-                    <input type="text" id="nombre" name="nombre" value="<?php echo htmlspecialchars(isset($datos['nombre']) ? $datos['nombre'] : '', ENT_QUOTES, 'UTF-8'); ?>" required>
+            <form class="formulario formulario-horizontal" action="index.php?accion=procesar" method="post">
+                <div class="datos-cliente">
+                    <div class="campo">
+                        <label for="nombre">Nombre del cliente</label>
+                        <input type="text" id="nombre" name="nombre" value="<?php echo htmlspecialchars(isset($datos['nombre']) ? $datos['nombre'] : '', ENT_QUOTES, 'UTF-8'); ?>" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="fecha_nacimiento">Fecha de nacimiento</label>
+                        <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" value="<?php echo htmlspecialchars(isset($datos['fecha_nacimiento']) ? $datos['fecha_nacimiento'] : '', ENT_QUOTES, 'UTF-8'); ?>" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="genero">Genero</label>
+                        <select id="genero" name="genero" required>
+                            <?php $generoSeleccionado = isset($datos['genero']) ? $datos['genero'] : ''; ?>
+                            <option value="">Seleccione</option>
+                            <option value="Masculino" <?php echo $generoSeleccionado === 'Masculino' ? 'selected' : ''; ?>>Masculino</option>
+                            <option value="Femenino" <?php echo $generoSeleccionado === 'Femenino' ? 'selected' : ''; ?>>Femenino</option>
+                            <option value="Otro" <?php echo $generoSeleccionado === 'Otro' ? 'selected' : ''; ?>>Otro</option>
+                        </select>
+                    </div>
+
+                    <div class="campo">
+                        <label for="nacionalidad">Nacionalidad</label>
+                        <input type="text" id="nacionalidad" name="nacionalidad" value="<?php echo htmlspecialchars(isset($datos['nacionalidad']) ? $datos['nacionalidad'] : '', ENT_QUOTES, 'UTF-8'); ?>" required>
+                    </div>
+
+                    <div class="campo campo-completo">
+                        <label for="direccion">Direccion de residencia</label>
+                        <textarea id="direccion" name="direccion" rows="3" required><?php echo htmlspecialchars(isset($datos['direccion']) ? $datos['direccion'] : '', ENT_QUOTES, 'UTF-8'); ?></textarea>
+                    </div>
                 </div>
 
-                <div class="campo">
-                    <label for="fecha_nacimiento">Fecha de nacimiento</label>
-                    <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" value="<?php echo htmlspecialchars(isset($datos['fecha_nacimiento']) ? $datos['fecha_nacimiento'] : '', ENT_QUOTES, 'UTF-8'); ?>" required>
-                </div>
-
-                <div class="campo">
-                    <label for="genero">Genero</label>
-                    <select id="genero" name="genero" required>
-                        <?php $generoSeleccionado = isset($datos['genero']) ? $datos['genero'] : ''; ?>
-                        <option value="">Seleccione</option>
-                        <option value="Masculino" <?php echo $generoSeleccionado === 'Masculino' ? 'selected' : ''; ?>>Masculino</option>
-                        <option value="Femenino" <?php echo $generoSeleccionado === 'Femenino' ? 'selected' : ''; ?>>Femenino</option>
-                        <option value="Otro" <?php echo $generoSeleccionado === 'Otro' ? 'selected' : ''; ?>>Otro</option>
-                    </select>
-                </div>
-
-                <div class="campo">
-                    <label for="nacionalidad">Nacionalidad</label>
-                    <input type="text" id="nacionalidad" name="nacionalidad" value="<?php echo htmlspecialchars(isset($datos['nacionalidad']) ? $datos['nacionalidad'] : '', ENT_QUOTES, 'UTF-8'); ?>" required>
-                </div>
-
-                <div class="campo campo-completo">
-                    <label for="direccion">Direccion de residencia</label>
-                    <textarea id="direccion" name="direccion" rows="3" required><?php echo htmlspecialchars(isset($datos['direccion']) ? $datos['direccion'] : '', ENT_QUOTES, 'UTF-8'); ?></textarea>
-                </div>
-
-                <fieldset class="campo-completo servicios">
+                <fieldset class="servicios bloque-servicios">
                     <legend>Servicios disponibles</legend>
                     <?php
                     $serviciosMarcados = isset($datos['servicios']) && is_array($datos['servicios']) ? $datos['servicios'] : array();

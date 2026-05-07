@@ -8,31 +8,35 @@
 </head>
 <body>
     <main class="contenedor">
-        <section class="panel panel-pequeno">
-            <h1>Inicio de sesion</h1>
-            <p>Ingrese con un usuario registrado para continuar.</p>
+        <section class="panel panel-pequeno acceso-horizontal">
+            <div class="intro-acceso">
+                <h1>Acceso al sistema</h1>
+                <p>Ordenes de servicios tecnicos.</p>
+            </div>
 
-            <?php if ($error !== '') { ?>
-                <div class="alerta error">
-                    <?php echo htmlspecialchars($error, ENT_QUOTES, 'UTF-8'); ?>
-                </div>
-            <?php } ?>
+            <div>
+                <?php if ($error !== '') { ?>
+                    <div class="alerta error">
+                        <?php echo htmlspecialchars($error, ENT_QUOTES, 'UTF-8'); ?>
+                    </div>
+                <?php } ?>
 
-            <form class="formulario" action="index.php?accion=autenticar" method="post">
-                <div class="campo">
-                    <label for="usuario">Usuario</label>
-                    <input type="text" id="usuario" name="usuario" required>
-                </div>
+                <form class="formulario" action="index.php?accion=autenticar" method="post">
+                    <div class="campo">
+                        <label for="usuario">Usuario</label>
+                        <input type="text" id="usuario" name="usuario" required>
+                    </div>
 
-                <div class="campo">
-                    <label for="clave">Contrasena</label>
-                    <input type="password" id="clave" name="clave" required>
-                </div>
+                    <div class="campo">
+                        <label for="clave">Contrasena</label>
+                        <input type="password" id="clave" name="clave" required>
+                    </div>
 
-                <button type="submit">Entrar</button>
-            </form>
+                    <button type="submit">Entrar</button>
+                </form>
 
-            <p class="ayuda">Usuario de prueba: admin / 1234</p>
+                <p class="ayuda">Usuario de prueba: admin / 1234</p>
+            </div>
         </section>
     </main>
 </body>
