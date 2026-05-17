@@ -1,0 +1,145 @@
+:root {
+    --fondo: #edf4f8;
+    --caja: #ffffff;
+    --texto: #1d2730;
+    --borde: #cfd8df;
+    --boton: #247d92;
+}
+
+[data-theme="light"] {
+    --fondo: #fff7e8;
+    --caja: #ffffff;
+    --texto: #2b2118;
+    --borde: #e4cfa8;
+    --boton: #a35f16;
+}
+
+[data-theme="dark"] {
+    --fondo: #15171c;
+    --caja: #232832;
+    --texto: #f4f4f4;
+    --borde: #414956;
+    --boton: #4da3ff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--fondo);
+    color: var(--texto);
+    font-family: Arial, sans-serif;
+}
+
+.login,
+.contenedor {
+    width: min(900px, 92%);
+    margin: 40px auto;
+}
+
+.login {
+    min-height: 80vh;
+    display: grid;
+    place-items: center;
+}
+
+.barra {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 32px;
+    background: var(--caja);
+    border-bottom: 1px solid var(--borde);
+}
+
+.contenedor {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+}
+
+.caja {
+    width: 100%;
+    padding: 28px;
+    background: var(--caja);
+    border: 1px solid var(--borde);
+    border-radius: 6px;
+}
+
+h1,
+h2 {
+    margin-top: 0;
+}
+
+form {
+    display: grid;
+    gap: 12px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid var(--borde);
+    border-radius: 4px;
+}
+
+button {
+    padding: 11px 16px;
+    border: 0;
+    border-radius: 4px;
+    background: var(--boton);
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.salir {
+    background: #6b7280;
+}
+
+.check,
+.opcion {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.mensaje {
+    margin: 15px 0;
+    padding: 10px;
+    color: #9f1239;
+    background: #ffe4e6;
+    border: 1px solid #fecdd3;
+}
+
+.enlace {
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.enlace a {
+    color: var(--boton);
+    font-weight: bold;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 18px;
+}
+
+th,
+td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--borde);
+}
+
+@media (max-width: 700px) {
+    .contenedor {
+        grid-template-columns: 1fr;
+    }
+}
